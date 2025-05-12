@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class FakeRepo implements FakeRepoInterface {
+
     private User[] users = new User[10];
     private int size = 0;
 
@@ -14,5 +15,14 @@ public class FakeRepo implements FakeRepoInterface {
     User user = new User(id, name, surname);
     users[size++] = user;
     return name;
+}
+@Override
+public String findUserById(long id) {
+    for (User u : users) {
+        if (u != null && u.getId() == id) {
+            return u.getName();
+        }
+    }
+    return null;
 }
 }

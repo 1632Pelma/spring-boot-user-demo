@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Objects;
+
 public class User {
     private long id;
     private String name;
@@ -36,7 +38,18 @@ public String getSurname() {
         this.name= name;
     }
 
+ @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(name, user.name) && Objects.equals(surname, user.surname);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname);
+    }
 
 
      @Override

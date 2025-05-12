@@ -10,4 +10,8 @@ public class User {
     this.name = name;
     this.surname = surname;
 }
+
+public long getId() { return id; }
+public String getName() { return name; }
+public String getSurname() { return surname; }
 }

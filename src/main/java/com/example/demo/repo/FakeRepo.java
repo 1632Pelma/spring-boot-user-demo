@@ -1,12 +1,14 @@
 package com.example.demo.repo;
 
-import com.example.demo.model.User;
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.User;
 
 
 @Repository
 public class FakeRepo implements FakeRepoInterface {
 
+    @SuppressWarnings("FieldMayBeFinal")
     private User[] users = new User[10];
     private int size = 0;
 
@@ -25,4 +27,17 @@ public String findUserById(long id) {
     }
     return null;
 }
+
+ @Override
+    public String deleteUser(long id) {
+        for (int i = 0; i < size; i++) {
+            if (users[i].getId() == id) {
+                String name = users[i].getName();
+                System.arraycopy(users, i+1, users, i, size-i-1);
+                users[--size] = null;
+                return name;
+            }
+        }
+        return null;
+    }
 }

@@ -11,7 +11,40 @@ public class User {
     this.surname = surname;
 }
 
-public long getId() { return id; }
-public String getName() { return name; }
-public String getSurname() { return surname; }
+public long getId() { 
+    return id; 
+
+}
+public String getName() { 
+    return name;
+
+}
+public String getSurname() {
+     return surname;
+    
+    }
+
+     public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setSurname(String surname){
+        this.surname = surname;
+    }
+
+    public void setName(String name){
+        this.name= name;
+    }
+
+
+
+
+     @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';}
+
 }

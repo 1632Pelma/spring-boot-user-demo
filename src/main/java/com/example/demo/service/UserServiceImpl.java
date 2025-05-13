@@ -13,4 +13,10 @@ public class UserServiceImpl implements UserService {
         this.fakeRepo = fakeRepo;
     }
 
+    @Override
+    public String addUser(String name, String surname) {
+    long id = System.currentTimeMillis() % 1000; // Simple ID gen
+    return fakeRepo.insertUser(id, name, surname) + " added";
+}
+
 }

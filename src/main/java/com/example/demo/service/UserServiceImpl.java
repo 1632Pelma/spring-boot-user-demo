@@ -19,4 +19,10 @@ public class UserServiceImpl implements UserService {
     return fakeRepo.insertUser(id, name, surname) + " added";
 }
 
+@Override
+public String getUser(long id) {
+    String name = fakeRepo.findUserById(id);
+    return name != null ? "Hello " + name : "User not found";
+}
+
 }

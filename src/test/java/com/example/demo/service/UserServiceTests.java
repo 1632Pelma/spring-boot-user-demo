@@ -1,12 +1,14 @@
 package com.example.demo.service;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-public class UserServiceTests {
+@ExtendWith(MockitoExtension.class)
+class UserServiceTests {
+    @Mock
+    private FakeRepo fakeRepo;
 
-    @Test
-    void sampleTest() {
-        assertTrue(true);
-    }
+    @InjectMocks
+    private UserServiceImpl userService;
+
 }

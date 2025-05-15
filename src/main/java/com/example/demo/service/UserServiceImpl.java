@@ -6,7 +6,7 @@ import com.example.demo.repo.FakeRepo;
 
 
 @Service
-public abstract class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
     private final FakeRepo fakeRepo;
 
     @Autowired

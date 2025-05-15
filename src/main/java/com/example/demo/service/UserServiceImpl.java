@@ -2,11 +2,11 @@ package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.repo.FakeRepo;
 
+
 @Service
-public class UserServiceImpl implements UserService {
+public abstract class UserServiceImpl implements UserService {
     private final FakeRepo fakeRepo;
 
     @Autowired
@@ -19,13 +19,6 @@ public class UserServiceImpl implements UserService {
     long id = System.currentTimeMillis() % 1000; // Simple ID gen
     return fakeRepo.insertUser(id, name, surname) + " added";
 }
-
-
-    @Override
-    public String removeUser(long id) {
-        String name = fakeRepo.deleteUser(id);
-        return name != null ? name + " removed" : "User not found";
-    }
 
 @Override
 public String getUser(long id) {

@@ -36,4 +36,12 @@ void getNonExistentUser_shouldReturnNotFound() {
     assertEquals("User not found", userService.getUser(999L));
 }
 
+@Test
+void removeUser_shouldReturnConfirmation() {
+    when(fakeRepo.deleteUser(anyLong())).thenReturn("TestUser");
+    String result = userService.removeUser(123L);
+    assertEquals("TestUser removed", result);
+}
+
+
 }

@@ -27,9 +27,11 @@ public String getUser(long id) {
     return name != null ? "Hello " + name : "User not found";
 }
 
+
     @Override
-    public String removeUser(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+public String removeUser(long id) {
+    String name = fakeRepo.deleteUser(id);
+    return name != null ? name + " removed" : "User not found";
+}
 
 }

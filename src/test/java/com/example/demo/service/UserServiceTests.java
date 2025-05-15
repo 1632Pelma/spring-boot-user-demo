@@ -29,6 +29,10 @@ class UserServiceTests {
         String result = userService.addUser("TestUser", "TestSurname");
         assertEquals("TestUser added", result);
     }
-
+@Test
+void getNonExistentUser_shouldReturnNotFound() {
+    when(fakeRepo.findUserById(anyLong())).thenReturn(null);
+    assertEquals("User not found", userService.getUser(999L));
+}
 
 }
